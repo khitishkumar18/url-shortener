@@ -1,26 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- The .ejs extension is used for files that contain templates written using EJS (Embedded JavaScript).
+These files are HTML files that allow embedded JavaScript code, enabling dynamic content generation on
+the server-side or client-side depending on the context. -->
+
+<!DOCTYPE html> <!-- Document type declaration for HTML5 -->
+<html lang="en"> <!-- Opening tag for the HTML document with language set to English -->
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Url shortner</title>
+    <meta charset="UTF-8" /> <!-- Character encoding set to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Viewport configuration for responsive design -->
+    <link rel="stylesheet" href="style.css" /> <!-- Link to an external stylesheet named "style.css" -->
+    <title>Url shortner</title> <!-- Title of the webpage set to "Url shortner" -->
   </head>
   <body>
-    <h1>URL shortner</h1>
+    <h1>URL SHRINKER
+    </h1> <!-- Heading displaying "URL shortner" -->
 
-    <% if (locals.error) { %>
-    <p class="error"><%= error %></p>
+    <% if (locals.error) { %> <!-- EJS syntax to check if there is an error message in the local data -->
+    <p class="error"><%= error %></p> <!-- Display error message in a paragraph with class "error" -->
     <% } %>
 
-    <form action="/" method="post">
-      <input type="url" name="url" id="url" placeholder="url here..." />
-      <input type="submit" value="create url" />
+    <form action="/" method="post"> <!-- Form to submit a URL using the POST method to the root URL -->
+      <input type="url" name="url" id="url" placeholder="url here..." /> <!-- Input field for entering a URL -->
+      <input type="submit" value="create url" /> <!-- Submit button to create the shortened URL -->
     </form>
+    
 
     <div class="short-url">
-      <% if (locals.short_url) { %>
-      <a href="<%= short_url %>"><%= short_url %> </a>
+      <% if (locals.short_url) { %> <!-- EJS syntax to check if a shortened URL exists in the local data -->
+      <a href="<%= short_url %>"><%= short_url %> </a> <!-- Display a clickable link for the shortened URL -->
       <% } %>
     </div>
   </body>
